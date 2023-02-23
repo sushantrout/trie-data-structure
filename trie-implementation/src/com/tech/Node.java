@@ -1,5 +1,7 @@
 package com.tech;
 
+import java.util.Arrays;
+
 public class Node {
 	Node[] chihldren;
 	boolean eow;
@@ -26,6 +28,11 @@ public class Node {
 
 	public void setEow(boolean eow) {
 		this.eow = eow;
+	}
+
+	@Override
+	public String toString() {
+		return "Node [chihldren=" + Arrays.toString(chihldren) + ", eow=" + eow + "]";
 	}
 
 }
