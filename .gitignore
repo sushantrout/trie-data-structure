@@ -21,3 +21,10 @@
 
 # virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
 hs_err_pid*
+.metadata/version.ini
+.metadata/.plugins/org.eclipse.m2e.logback.configuration/logback.1.16.1.20210603-1006.xml
+.metadata/.lock
+/.metadata/
+trie-implementation/.classpath
+trie-implementation/.project
+trie-implementation/.settings/org.eclipse.jdt.core.prefs
