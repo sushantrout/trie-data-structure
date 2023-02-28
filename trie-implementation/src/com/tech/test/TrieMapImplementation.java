@@ -2,6 +2,8 @@ package com.tech.test;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.Map;
+import java.util.Set;
 
 import com.tech.TrieMapDTO;
 
@@ -15,7 +17,19 @@ public class TrieMapImplementation {
 			insert(key, root);
 		}
 		
+		System.out.println("=============================");
+		System.out.println("Print all node");
+		System.out.println("=============================");
+		print(root, "ap");
+		System.out.println("=============================");
 		searchFromTrie("bat", root);
+		
+		System.out.println("=============================");
+		TrieMapDTO startWIth = startWIth("ap", root);
+		
+		System.out.println("Print by prefix");
+		System.out.println("=============================");
+		print(startWIth, "ap");
 	}
 
 	private static void searchFromTrie(String string, TrieMapDTO root) {
@@ -54,5 +68,24 @@ public class TrieMapImplementation {
 		}
 	}
 	
-	
+	private static TrieMapDTO startWIth(String searchWord, TrieMapDTO root) {
+		if(searchWord.isEmpty()) {
+			return root;
+		} else {
+			char charAt = searchWord.charAt(0);
+			TrieMapDTO trieMapDTO = root.getChildrenMap().get(charAt+"");
+			return startWIth(searchWord.substring(1, searchWord.length()), trieMapDTO);
+		}
+	}
+
+	private static void print(TrieMapDTO root, String word) {
+		if(root != null && root.isEw()) {
+			System.out.println(word);
+		}
+		Map<String, TrieMapDTO> childrenMap = root.getChildrenMap();
+		Set<String> keySet = childrenMap.keySet();
+		for(String key : keySet) {
+			print(childrenMap.get(key), word + key);
+		}
+	}
 }
